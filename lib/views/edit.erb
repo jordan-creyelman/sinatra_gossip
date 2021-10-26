@@ -1,16 +1,14 @@
 <html>
   <head>
-    <title>The Gossip Project</title>
+    <title>Modifier un potin</title>
   </head>
   <body>
-    <h1>Mon super site de gossip, depuis le dossier views !</h1>
-    <a href="/gossips/new/">Créer un nouveau potin!</a>
-    <% gossips.each.with_index do |gossip, index| %>
-      <p>
-        <a href = 'gossips/<%= index %>' >Potin n°<%= index + 1 %></a><br>
-        écrit par <%= gossip.author %><br/> 
-        <a href = '/gossips/<%=index%>/edit/'>Éditer ce potin</a>
-      </p>
-    <% end %>
+    <h1>Comment modifier un potin?</h1>
+    <p>Tu souhaites modifier le potin n°<%= id + 1%></p>
+    <form action='/gossips/<%= id%>/edit/' method='POST'>
+      Mise à jour de l'auteur : <input type='text' name='gossip_author' value="<%= gossip.author%>"/><br/>
+      Mise à jour du potin : <input type='text' name='gossip_content' value="<%= gossip.content%>"/><br/>
+      <input type='submit'/>
+    </form>
   </body>
 </html>
