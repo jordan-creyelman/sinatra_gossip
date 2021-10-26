@@ -23,8 +23,7 @@ class ApplicationController < Sinatra::Base
     erb :edit, locals: {gossip: Gossip.all[params[:id].to_i ], id: params[:id].to_i}
   end
 
-  #sauvegarde et met a jour le fichier csv avec les modifications
-  post '/gossips/:id/edit' do
+  post '/gossips/:id/edit/' do
 		Gossip.upgrade(params["gossip_author"], params["gossip_content"], params[:id].to_i)
 		redirect '/'
   end
