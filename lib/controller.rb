@@ -10,7 +10,7 @@ class ApplicationController < Sinatra::Base
     erb:new_gossip
   end 
 
-   post '/gossips/new' do
+   post '/gossips/new/' do
     puts "Ceci est le contenu du hash params : #{params}"
     Gossip.new(params["gossip_author"], params["gossip_content"]).save
     redirect '/'
